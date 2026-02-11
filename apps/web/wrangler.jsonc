@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cc-liveboard-web-dev",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-04-14",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+
+  // ─── Named environments ───
+  "env": {
+    "dev": {
+      "name": "cc-liveboard-web-dev"
+    },
+    "prod": {
+      "name": "cc-liveboard-web"
+    }
+  }
+}

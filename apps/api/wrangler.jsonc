@@ -1,0 +1,99 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cc-liveboard-api-dev",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-04-14",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // Migrations are top-level only (shared across all environments)
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["LiveboardRoom"]
+    }
+  ],
+
+  "observability": {
+    "enabled": true
+  },
+
+  // ─── Default / Dev bindings (used by `wrangler dev` and `wrangler deploy --env dev`) ───
+  // Bindings are NON-inheritable: they must be defined per environment.
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "cc-liveboard-db-dev",
+      "database_id": "e9c82342-82d1-4996-9914-19843e4369e4" // Replace after `wrangler d1 create cc-liveboard-db-dev`
+    }
+  ],
+
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "LIVEBOARD_ROOM",
+        "class_name": "LiveboardRoom"
+      }
+    ]
+  },
+
+  "r2_buckets": [
+    {
+      "binding": "IMAGES_BUCKET",
+      "bucket_name": "cc-liveboard-images-dev"
+    }
+  ],
+
+  // ─── Named environments ───
+  "env": {
+    "dev": {
+      "name": "cc-liveboard-api-dev",
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "cc-liveboard-db-dev",
+          "database_id": "e9c82342-82d1-4996-9914-19843e4369e4" // Replace after `wrangler d1 create cc-liveboard-db-dev`
+        }
+      ],
+      "durable_objects": {
+        "bindings": [
+          {
+            "name": "LIVEBOARD_ROOM",
+            "class_name": "LiveboardRoom"
+          }
+        ]
+      },
+      "r2_buckets": [
+        {
+          "binding": "IMAGES_BUCKET",
+          "bucket_name": "cc-liveboard-images-dev"
+        }
+      ]
+    },
+
+    "prod": {
+      "name": "cc-liveboard-api",
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "cc-liveboard-db",
+          "database_id": "PROD_DATABASE_ID" // Replace after `wrangler d1 create cc-liveboard-db`
+        }
+      ],
+      "durable_objects": {
+        "bindings": [
+          {
+            "name": "LIVEBOARD_ROOM",
+            "class_name": "LiveboardRoom"
+          }
+        ]
+      },
+      "r2_buckets": [
+        {
+          "binding": "IMAGES_BUCKET",
+          "bucket_name": "cc-liveboard-images"
+        }
+      ]
+    }
+  }
+}

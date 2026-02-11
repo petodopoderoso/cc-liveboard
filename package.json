@@ -1,0 +1,15 @@
+{
+  "name": "cc-liveboard",
+  "private": true,
+  "scripts": {
+    "dev:api": "pnpm --filter api dev",
+    "dev:web": "pnpm --filter web dev",
+    "deploy:dev:api": "pnpm --filter api deploy:dev",
+    "deploy:dev:web": "pnpm --filter web deploy:dev",
+    "deploy:prod:api": "pnpm --filter api deploy:prod",
+    "deploy:prod:web": "pnpm --filter web deploy:prod"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
