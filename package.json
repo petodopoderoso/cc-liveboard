@@ -7,7 +7,17 @@
     "deploy:dev:api": "pnpm --filter api deploy:dev",
     "deploy:dev:web": "pnpm --filter web deploy:dev",
     "deploy:prod:api": "pnpm --filter api deploy:prod",
-    "deploy:prod:web": "pnpm --filter web deploy:prod"
+    "deploy:prod:web": "pnpm --filter web deploy:prod",
+    "destroy:dev": "pnpm run destroy:dev:web; pnpm run destroy:dev:api; pnpm run destroy:dev:r2; pnpm run destroy:dev:d1",
+    "destroy:prod": "pnpm run destroy:prod:web; pnpm run destroy:prod:api; pnpm run destroy:prod:r2; pnpm run destroy:prod:d1",
+    "destroy:dev:api": "wrangler delete --name cc-liveboard-api-dev",
+    "destroy:dev:web": "wrangler delete --name cc-liveboard-web-dev",
+    "destroy:dev:d1": "wrangler d1 delete cc-liveboard-db-dev",
+    "destroy:dev:r2": "echo '⚠️  Empty the bucket first from the Cloudflare dashboard if not empty' && wrangler r2 bucket delete cc-liveboard-images-dev",
+    "destroy:prod:api": "wrangler delete --name cc-liveboard-api",
+    "destroy:prod:web": "wrangler delete --name cc-liveboard-web",
+    "destroy:prod:d1": "wrangler d1 delete cc-liveboard-db",
+    "destroy:prod:r2": "echo '⚠️  Empty the bucket first from the Cloudflare dashboard if not empty' && wrangler r2 bucket delete cc-liveboard-images"
   },
   "engines": {
     "node": ">=20"
