@@ -16,7 +16,7 @@
     "destroy:dev:r2": "echo '⚠️  Empty the bucket first from the Cloudflare dashboard if not empty' && wrangler r2 bucket delete cc-liveboard-images-dev",
     "destroy:prod:api": "wrangler delete --name cc-liveboard-api",
     "destroy:prod:web": "wrangler delete --name cc-liveboard-web",
-    "destroy:prod:d1": "wrangler d1 delete cc-liveboard-db",
+    "destroy:prod:d1": "wrangler d1 delete cc-liveboard-db-prod",
     "destroy:prod:r2": "echo '⚠️  Empty the bucket first from the Cloudflare dashboard if not empty' && wrangler r2 bucket delete cc-liveboard-images"
   },
   "engines": {
