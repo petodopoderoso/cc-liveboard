@@ -10,8 +10,12 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
-
-  // ─── Named environments ───
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true
+    }
+  },
   "env": {
     "dev": {
       "name": "cc-liveboard-web-dev"
