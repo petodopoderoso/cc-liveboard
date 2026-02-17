@@ -7,7 +7,7 @@
     "deploy:prod": "wrangler deploy --env prod",
     "db:init": "wrangler d1 execute cc-liveboard-db-dev --local --file=./src/db/schema.sql",
     "db:init:dev": "wrangler d1 execute cc-liveboard-db-dev --remote --env dev --file=./src/db/schema.sql",
-    "db:init:prod": "wrangler d1 execute cc-liveboard-db --remote --env prod --file=./src/db/schema.sql"
+    "db:init:prod": "wrangler d1 execute cc-liveboard-db-prod --remote --env prod --file=./src/db/schema.sql"
   },
   "dependencies": {
     "hono": "latest"
