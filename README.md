@@ -172,7 +172,7 @@ cd apps/api
 # Crear D1
 npx wrangler d1 create cc-liveboard-db-dev
 
-# Crear R2
+# Crear R2 # R2 is not included in the free tier so this is optional
 npx wrangler r2 bucket create cc-liveboard-images-dev
 ```
 
