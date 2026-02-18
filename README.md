@@ -72,7 +72,7 @@ Todos dentro del **free tier** (sin tarjeta de crédito):
 | **Workers** | API backend (Hono) + Frontend SSR (Next.js) | 100K req/día |
 | **D1** | Base de datos SQL para preguntas y votos | 5GB storage, 5M reads/día |
 | **Durable Objects** | WebSocket rooms para tiempo real (Hibernation API) | 100K req/día |
-| **R2** | Almacenamiento de imágenes adjuntas a preguntas | 10GB, 0 egress fees |
+| **R2** | Almacenamiento de imágenes adjuntas a preguntas (opcional ya que requiere ingresar tarjeta de crédito para poder usarlo) | 10GB, 0 egress fees |
 | **Workers Assets** | Archivos estáticos del frontend (JS, CSS, imágenes) | Ilimitado |
 
 ### Cómo se conecta todo
@@ -150,7 +150,7 @@ pnpm dev:web
 
 ---
 
-## Deploy en Cloudflare
+## Deploy en Cloudflare (Buildeando en local)
 
 ### Paso 0: Iniciar sesión
 
@@ -215,7 +215,7 @@ pnpm deploy:dev:web
 
 ---
 
-### Deploy ambiente PROD
+### Deploy ambiente PROD (Buildeando automaticamente en Cloudflare usando Github App)
 
 #### 1. Crear recursos D1 y R2 para producción
 
@@ -225,7 +225,7 @@ cd apps/api
 # Crear D1
 npx wrangler d1 create cc-liveboard-db
 
-# Crear R2
+# Crear R2 # R2 is not included in the free tier so this is optional
 npx wrangler r2 bucket create cc-liveboard-images
 ```
 

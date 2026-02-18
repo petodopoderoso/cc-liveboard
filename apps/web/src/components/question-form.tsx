@@ -100,7 +100,7 @@ export function QuestionForm({ onSubmit }: QuestionFormProps) {
             value={content}
             onChange={(e) => setContent(e.target.value)}
             onPaste={handlePaste}
-            placeholder="Escribe tu pregunta... (Ctrl+V para pegar imagen)"
+            placeholder="Escribe tu pregunta..."
             rows={3}
             className="w-full rounded-xl bg-cf-gray border border-white/10 px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-cf-orange/50 focus:border-cf-orange transition-all resize-none"
             maxLength={500}

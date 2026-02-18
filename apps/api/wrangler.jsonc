@@ -77,7 +77,7 @@
         {
           "binding": "DB",
           "database_name": "cc-liveboard-db",
-          "database_id": "1e0754d5-ee8f-4438-92e5-1613dbe0ca1b" // Replace after `wrangler d1 create cc-liveboard-db`
+          "database_id": "e894ce1f-6a54-4629-91da-08e31f92ff43" // Replace after `wrangler d1 create cc-liveboard-db`
         }
       ],
       "durable_objects": {
