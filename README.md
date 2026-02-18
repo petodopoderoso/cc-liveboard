@@ -232,6 +232,7 @@ npx wrangler r2 bucket create cc-liveboard-images
 #### 2. Actualizar `apps/api/wrangler.jsonc`
 
 Copia el `database_id` y pégalo en `env.prod > d1_databases`.
+Hacer commit para actualizar el archivo `apps/api/wrangler.jsonc` en el branch main.
 
 #### 3. Inicializar schema D1 remoto (prod)
 
@@ -240,27 +241,21 @@ cd apps/api
 pnpm db:init:prod
 ```
 
-#### 4. Desplegar API (prod)
+#### 4. Crear api desde el UI de Cloudflare en la seccion de Workers y Pages
 
-```bash
-pnpm deploy:prod:api
-# → https://cc-liveboard-api.<tu-subdomain>.workers.dev
+1. project name: ```cc-liveboard-api```
+2. build command: ```npm install```
+3. deploy command: ```npm run deploy:prod:api```
+
+#### 5. Crear web desde el UI de Cloudflare en la seccion de Workers y Pages
+
+1. project name: ```cc-liveboard-web```
+2. build command: ```npm install```
+3. deploy command: ```npm run deploy:prod:web```
+4. Environment variables:
 ```
-
-#### 5. Configurar URL en el frontend
-
-Actualiza `apps/web/.env.production`:
-
-```env
 NEXT_PUBLIC_API_URL=https://cc-liveboard-api.<tu-subdomain>.workers.dev
 NEXT_PUBLIC_WS_URL=wss://cc-liveboard-api.<tu-subdomain>.workers.dev
-```
-
-#### 6. Desplegar frontend (prod)
-
-```bash
-pnpm deploy:prod:web
-# → https://cc-liveboard-web.<tu-subdomain>.workers.dev
 ```
 
 ---
